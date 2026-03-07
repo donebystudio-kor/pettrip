@@ -38,7 +38,7 @@ export default async function ComboPage({ params }: Props) {
   const category = CATEGORY_SLUGS.find((c) => c.slug === categorySlug);
   if (!region || !category) notFound();
 
-  const items = await getAreaBasedList(region.code, undefined, category.typeId);
+  const items = await getAreaBasedList(region.code, undefined, category.typeId, 100);
 
   const jsonLd = {
     "@context": "https://schema.org",

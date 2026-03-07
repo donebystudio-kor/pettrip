@@ -37,7 +37,7 @@ export default async function RegionPage({ params }: Props) {
   const region = REGION_SLUGS.find((r) => r.slug === slug);
   if (!region) notFound();
 
-  const items = await getAreaBasedList(region.code);
+  const items = await getAreaBasedList(region.code, undefined, undefined, 100);
 
   // ItemList JSON-LD
   const jsonLd = {
