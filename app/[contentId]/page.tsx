@@ -34,21 +34,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (overview) desc += ` ${overview}`;
 
   return {
-    title: `${common.title} - 반려동물 동반 가능 | 펫트립`,
+    title: `${common.title} - 반려동물 동반 가능 | 네발여행`,
     description: desc.slice(0, 160),
     openGraph: {
-      title: `${common.title} - 반려동물 동반 ${typeLabel} | 펫트립`,
+      title: `${common.title} - 반려동물 동반 ${typeLabel} | 네발여행`,
       description: desc.slice(0, 160),
       type: "article",
       images: common.firstimage
         ? [{ url: common.firstimage, width: 800, height: 600, alt: common.title }]
         : [],
-      siteName: "펫트립",
+      siteName: "네발여행",
       locale: "ko_KR",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${common.title} | 펫트립`,
+      title: `${common.title} | 네발여행`,
       description: desc.slice(0, 160),
       images: common.firstimage ? [common.firstimage] : [],
     },

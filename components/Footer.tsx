@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-1.5 mb-2">
               <span className="text-xl">🐾</span>
-              <span className="font-bold text-[#FF6B35]">펫트립</span>
+              <span className="font-bold text-[#FF6B35]">네발여행</span>
             </div>
             <p className="text-sm text-[#aaa] max-w-xs">
               반려동물과 함께하는 특별한 여행을 만들어가요
@@ -26,6 +26,7 @@ export default function Footer() {
             </div>
             <div className="space-y-2">
               <p className="font-semibold text-[#555]">정보</p>
+              <Link href="/privacy" className="block text-[#888] hover:text-[#FF6B35] transition-colors">개인정보처리방침</Link>
               <a
                 href="https://www.visitkorea.or.kr"
                 target="_blank"
@@ -39,7 +40,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-4 border-t border-[#FFE5D5] text-center text-xs text-[#ccc]">
-          © 2026 펫트립. All rights reserved.
+          © 2026 네발여행. All rights reserved.
         </div>
       </div>
     </footer>

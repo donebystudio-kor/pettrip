@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title,
     description,
     openGraph: {
-      title: `${title} | 펫트립`,
+      title: `${title} | 네발여행`,
       description,
       type: "website",
     },

@@ -64,7 +64,7 @@ export default function ShareButtons({ title, description, imageUrl, contentId }
     const text = `우리 강아지랑 ${title} 가볼까? 🐾\n${description.slice(0, 80)}`;
     if (navigator.share) {
       try {
-        await navigator.share({ title: `${title} | 펫트립`, text, url });
+        await navigator.share({ title: `${title} | 네발여행`, text, url });
       } catch {}
     } else {
       await navigator.clipboard.writeText(`${text}\n${url}`);

@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4">
           <Link href="/" className="flex items-center gap-1.5 shrink-0">
             <span className="text-2xl">🐾</span>
-            <span className="text-xl font-bold text-[#FF6B35]">펫트립</span>
+            <span className="text-xl font-bold text-[#FF6B35]">네발여행</span>
           </Link>
 
           <nav className="flex items-center gap-1 ml-auto">
@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="px-4 py-3 flex items-center justify-center">
           <Link href="/" className="flex items-center gap-1.5">
             <span className="text-2xl">🐾</span>
-            <span className="text-xl font-bold text-[#FF6B35]">펫트립</span>
+            <span className="text-xl font-bold text-[#FF6B35]">네발여행</span>
           </Link>
         </div>
       </header>

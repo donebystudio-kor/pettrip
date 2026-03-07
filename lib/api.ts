@@ -14,7 +14,7 @@ const BASE_URL =
 const COMMON_PARAMS: Record<string, string> = {
   serviceKey: SERVICE_KEY,
   MobileOS: "ETC",
-  MobileApp: "펫트립",
+  MobileApp: "네발여행",
   _type: "json",
 };
 

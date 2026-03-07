@@ -236,7 +236,7 @@ export default function CourseClient() {
   const filtered = COURSES.filter((c) => c.region === selectedRegion);
 
   const handleShare = async (course: Course) => {
-    const text = `🐾 ${course.title}\n\n${course.spots.map((s) => `${s.time} ${s.name} - ${s.desc}`).join("\n")}\n\n펫트립에서 더 많은 코스를 확인하세요!`;
+    const text = `🐾 ${course.title}\n\n${course.spots.map((s) => `${s.time} ${s.name} - ${s.desc}`).join("\n")}\n\n네발여행에서 더 많은 코스를 확인하세요!`;
     const url = "https://pettrip.vercel.app/course";
 
     if (navigator.share) {

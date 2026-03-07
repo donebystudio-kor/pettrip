@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://pettrip.vercel.app"),
   title: {
-    default: "펫트립 - 반려동물 동반 여행지 추천",
-    template: "%s | 펫트립",
+    default: "네발여행 - 반려동물 동반 여행지 추천",
+    template: "%s | 네발여행",
   },
   alternates: {
     canonical: "/",
@@ -20,21 +20,21 @@ export const metadata: Metadata = {
     "펫 동반 숙소",
     "강아지와 여행",
     "반려견 여행",
-    "펫트립",
+    "네발여행",
     "강아지 동반 식당",
     "반려동물 관광지",
   ],
   openGraph: {
     type: "website",
     locale: "ko_KR",
-    siteName: "펫트립",
-    title: "펫트립 - 반려동물 동반 여행지 추천",
+    siteName: "네발여행",
+    title: "네발여행 - 반려동물 동반 여행지 추천",
     description:
       "강아지, 고양이와 함께하는 반려동물 동반 여행지를 추천해드려요.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "펫트립 - 반려동물 동반 여행지 추천",
+    title: "네발여행 - 반려동물 동반 여행지 추천",
     description:
       "강아지, 고양이와 함께하는 반려동물 동반 여행지를 추천해드려요.",
   },

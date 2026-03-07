@@ -34,10 +34,10 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const areaName = AREA_CODES.find((a) => a.code === area)?.name;
   const typeName = type ? CONTENT_TYPE_LABELS[type] : undefined;
 
-  let title = "펫트립 - 반려동물과 함께하는 여행";
-  if (areaName && typeName) title = `${areaName} ${typeName} | 펫트립`;
-  else if (areaName) title = `${areaName} 반려동물 동반 여행지 | 펫트립`;
-  else if (typeName) title = `${typeName} | 펫트립`;
+  let title = "네발여행 - 반려동물과 함께하는 여행";
+  if (areaName && typeName) title = `${areaName} ${typeName} | 네발여행`;
+  else if (areaName) title = `${areaName} 반려동물 동반 여행지 | 네발여행`;
+  else if (typeName) title = `${typeName} | 네발여행`;
 
   return { title };
 }
@@ -55,7 +55,7 @@ export default async function HomePage({ searchParams }: Props) {
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "펫트립",
+    name: "네발여행",
     url: "https://pettrip.vercel.app",
     description: "반려동물과 함께하는 여행지를 찾아보세요",
     potentialAction: {
@@ -81,7 +81,7 @@ export default async function HomePage({ searchParams }: Props) {
       {!isFiltered && (
         <section className="bg-gradient-to-b from-[#FFF0E8] to-[#FFF8F0] py-12 md:py-20 px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-[#FF6B35] text-sm font-medium tracking-wider mb-3">🐾 Pet Trip</p>
+            <p className="text-[#FF6B35] text-sm font-medium tracking-wider mb-3">🐾 네발여행</p>
             <h1 className="text-3xl md:text-5xl font-bold text-[#2D2D2D] mb-4 leading-tight">
               우리 강아지와<br />어디 갈까?
             </h1>
