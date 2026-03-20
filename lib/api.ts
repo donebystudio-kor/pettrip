@@ -34,7 +34,7 @@ async function fetchApiPage<T>(
 
   try {
     let res = await fetch(url, { next: { revalidate: 3600 } });
-    for (let attempt = 1; attempt < 3 && (res.status === 504 || res.status === 503); attempt++) {
+    for (let attempt = 1; attempt < 3 && (res.status === 504 || res.status === 503 || res.status === 429); attempt++) {
       await new Promise((r) => setTimeout(r, 1000 * attempt));
       res = await fetch(url, { next: { revalidate: 3600 } });
     }
@@ -77,7 +77,30 @@ async function fetchApi<T>(
   return items;
 }
 
-// 전체 페이지 자동 수집 (100개씩, 병렬 fetch)
+const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+// 동시 요청 수 제한 (빌드 시 429 방지)
+async function promisePool<T>(
+  tasks: (() => Promise<T>)[],
+  concurrency: number,
+  delayMs: number
+): Promise<T[]> {
+  const results: T[] = [];
+  let index = 0;
+
+  async function worker() {
+    while (index < tasks.length) {
+      const i = index++;
+      results[i] = await tasks[i]();
+      if (index < tasks.length) await delay(delayMs);
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(concurrency, tasks.length) }, () => worker()));
+  return results;
+}
+
+// 전체 페이지 자동 수집 (100개씩, 동시 3개 + 250ms 딜레이)
 async function fetchAllPages<T>(
   operation: string,
   baseParams: Record<string, string | number>
@@ -94,11 +117,11 @@ async function fetchAllPages<T>(
   const totalPages = Math.ceil(first.totalCount / PAGE_SIZE);
   const restPages = Array.from({ length: totalPages - 1 }, (_, i) => i + 2);
 
-  const restResults = await Promise.all(
-    restPages.map((page) =>
-      fetchApi<T>(operation, { ...baseParams, pageNo: page, numOfRows: PAGE_SIZE })
-    )
+  const tasks = restPages.map((page) => () =>
+    fetchApi<T>(operation, { ...baseParams, pageNo: page, numOfRows: PAGE_SIZE })
   );
+
+  const restResults = await promisePool(tasks, 3, 250);
 
   return [...first.items, ...restResults.flat()];
 }
