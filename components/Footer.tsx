@@ -40,7 +40,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 pt-4 border-t border-[#FFE5D5] text-center text-xs text-[#ccc]">
-          © 2026 네발여행. All rights reserved.
+          <p>데이터 출처: ⓒ한국관광공사</p>
+          <p className="mt-1">© 2026 네발여행. All rights reserved.</p>
         </div>
       </div>
     </footer>
